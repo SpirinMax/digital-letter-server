@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang = "en" xmlns:th="http://www.thumeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Панель работы с письмами</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="main_body">
+	<div class="header">
+		<div class="header">
+			<div class="head_logo"></div>
+			<div class="title">Проект Цифровое фронтовое письмо</div>
+		</div>
+		
+		<div class="header">
+			<div class="user_icon"></div>
+			<div class="title"> <span th:text="${user_name}"></span></div>
+		</div>
+
+	</div>
+
+	<div class="header noBack">
+		<div style="visibility: hidden;">
+			<form action="museum" method="get">
+				<button class="button" type="submit">Музей</button>
+			</form>
+		</div>
+		<div>
+			<form action="goToLetterCreating" method="get">
+				<button class="button" type="submit">Создать письмо</button>
+			</form>
+		</div>
+		<div style="visibility: hidden;">
+			<form action="goToLetterEditing" method="get">
+				<input type="hidden" name="sorting" value="0">
+				<button class="button" type="submit">Изменить письмо</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

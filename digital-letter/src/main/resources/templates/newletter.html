@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="main_body">
+
+
+	<div class="header">
+		<div class="header">
+			<div class="head_logo"></div>
+			<div class="title">Создание нового письма</div>
+		</div>
+
+		<div class="header">
+			<div class="user_icon"></div>
+			<div class="title">
+				<span th:text="${user_name}"></span>
+			</div>
+		</div>
+	</div>
+
+	<p class="title">
+		<a th:href="@{/main(user=${idUser})}">На главную</a>
+		<!-- 		<a href="/main">На главную</a> -->
+	</p>
+
+	<form enctype="multipart/form-data" id="mus_from" method="post"
+		action="create_letter" class="mus_form"
+		onsubmit="confirm('Создать новое письмо?');">
+
+		<div class="content">
+			<div class="input_form museum">
+				<div>
+					<div>
+						<label for="author" class="title">Автор</label>
+					</div>
+					<input class="input_field small" type="text" id="author"
+						name="author" required>
+				</div>
+				<div>
+					<div>
+						<label for="heading" class="title">Заглавие</label>
+					</div>
+					<input class="input_field small" type="text" id="heading"
+						name="heading" required>
+				</div>
+				<div>
+					<div>
+						<label for="date_Writing" class="title">Дата написания</label>
+					</div>
+					<input class="input_field small" type="date" id="date_Writing"
+						name="dateWriting" required>
+
+				</div>
+				<div>
+					<div>
+						<label for="locality" class="title">Населенный пункт</label>
+					</div>
+					<input class="input_field small" type="text" id="locality"
+						name="locality" required>
+				</div>
+
+				<div>
+					<div>
+						<label for="text_letter" class="title">Текст письма</label>
+					</div>
+					<textarea id="text_letter" name="textLetter" form="mus_from"
+						rows="10" cols="70" class="input_field area"
+						placeholder="Отступы соблюдаются" required></textarea>
+				</div>
+
+				<div class="self_center">
+					<button class="button t" type="submit">Создать письмо</button>
+				</div>
+			</div>
+
+			<div class="photo_letter">
+				<div>
+					<p class="title">
+						Добавить скан письма</a>
+					</p>
+					<div id="image_letter" class="image_let">
+						<input class="image_let invisible" type="file" id="photo_letter"
+							name="scannedCopy" accept="image/*"
+							onchange="processFiles(this.files,1)" required>
+					</div>
+				</div>
+
+				<div>
+					<p class="title">
+						Добавить фото автора письма</a>
+					</p>
+					<div id="image_letter_2" class="image_let">
+						<input class="image_let invisible" type="file" id="photo_author"
+							name="photoAuthor" multiple accept="image/*"
+							onchange="processFiles(this.files,2)">
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+
+	</form>
+
+</body>
+
+<script src="showPhoto.js"></script>
+
+</html>

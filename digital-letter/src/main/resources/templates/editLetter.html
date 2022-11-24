@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="main_body">
+
+
+	<div class="header">
+		<div class="header">
+			<div class="head_logo"></div>
+			<div class="title">Изменение письма</div>
+		</div>
+
+
+
+		<div class="header">
+			<div class="user_icon"></div>
+			<div class="title">
+				<span th:text="${user_name}"></span>
+			</div>
+		</div>
+	</div>
+
+	<div class="pagination">
+		<!-- 	Шаблонизатор -->
+		<span class="title left">
+			<form>
+				<input type="image" src="arrow-circle-left.svg"
+					style="padding-right: 5px; width: 30px; height: 30px;">
+			</form> <span>Письмо № </span><span>1</span> <span style="padding: 0 5px;">из</span>
+			<span>20</span>
+			<form>
+				<input type="image" src="arrow-circle-right.svg"
+					style="padding-left: 5px; width: 30px; height: 30px;">
+			</form>
+		</span> <span class="title"> <a th:href="@{/main(user=${idUser})}">На
+				главную</a>
+		</span> <span class="title"> <span>
+				<form id="sorting_form" method="get" action="edit_letter">
+					<!-- 				скрипт, что при выборе идет отправка данных на сервер -->
+					<label for="sorting" style="font-size: 16px">Выбрать письма</label>
+					<select id="sorting" name="sorting">
+						<option value="0" th:selected="${sel0}">По новизне</option>
+						<option value="1" th:selected="${sel1}">По популярности</option>
+					</select> <input type="hidden" name="user" th:value="${idUser}">
+				</form>
+
+				<form class="title left">
+					<!-- 				скрипт, что при выборе даты меняется поле на "date" -->
+					<label for="sorting" style="font-size: 16px">Найти письма</label> <select
+						id="search_select" name="searchSelect" style="margin: 0 5px">
+						<option value="0">По автору</option>
+						<option value="1">По дате написания</option>
+						<option value="2">По населенному пункту</option>
+						<option value="3">По тексту</option>
+					</select> <input style="display: none" type="date" id="field_search_date"
+						name="fieldSearchDate" value="1941-01-01"> <input
+						type="search" id="field_search" name="fieldSearch"> <input
+						type="image" src="search_light.svg" class="image_search">
+				</form>
+		</span>
+	</div>
+
+	<form id="mus_from" action="" class="mus_form"
+		onsubmit="confirm('Подтвердить изменение письма?')">
+
+		<div class="content">
+			<div class="input_form museum">
+				<div>
+					<div>
+						<label for="author" class="title">Автор</label>
+					</div>
+					<input class="input_field small" type="text" id="author"
+						name="author" th:value="${author_field}">
+				</div>
+				<div>
+					<div>
+						<label for="heading" class="title">Заглавие</label>
+					</div>
+					<input class="input_field small" type="text" id="heading"
+						name="heading" th:value="${heading_field}">
+				</div>
+				<div>
+					<div>
+						<label for="date_Writing" class="title">Дата написания</label>
+					</div>
+					<input class="input_field small" type="date" id="date_Writing"
+						name="dateWriting" th:value="${dateWriting_field}">
+
+				</div>
+				<div>
+					<div>
+						<label for="locality" class="title">Населенный пункт</label>
+					</div>
+					<input class="input_field small" type="text" id="locality"
+						name="locality" th:value="${locality_field}">
+				</div>
+
+				<div>
+					<div>
+						<label for="text_letter" class="title">Текст письма</label>
+					</div>
+					<textarea id="text_letter" name="textLetter" form="mus_from"
+						th:text="${textLetter_field}" rows="10" cols="70"
+						class="input_field area" placeholder="Отступы соблюдаются"></textarea>
+				</div>
+
+				<div class="self_center">
+					<button class="button t" type="submit">Изменить письмо</button>
+				</div>
+			</div>
+
+			<div class="photo_letter">
+				<div>
+					<p class="title">
+						Изменить скан письма</a>
+					</p>
+					<div id="image_letter"
+						th:style="'background-image:url(' + ${src_scannedCopy} + ');margin-left: auto;
+	margin-right: auto;
+	background-size: cover;
+	height: 300px;
+	width: 300px;'">
+						<input class="image_let invisible" type="file" id="photo_letter"
+							name="scannedCopy" multiple accept="image/*"
+							onchange="processFiles(this.files,1)">
+					</div>
+				</div>
+				<!-- th:style="'background-image:url(' + ${src_scannedCopy} + ');'" -->
+				<div>
+					<p class="title">
+						Изменить фото автора письма</a>
+					</p>
+					<div id="image_letter_2" class="image_let">
+						<input class="image_let invisible" type="file" id="photo_author"
+							name="photoAuthor" multiple accept="image/*"
+							onchange="processFiles(this.files,2)">
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+
+	</form>
+
+</body>
+<script src="changeFieldDate.js"></script>
+
+<script src="sorting.js"></script>
+
+<script src="showPhoto.js"></script>
+
+
+
+</html>

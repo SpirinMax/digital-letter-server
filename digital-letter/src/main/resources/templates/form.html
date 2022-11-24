@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang = "en" xmlns:th="http://www.thumeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up Form</title>
+</head>
+<body>
+
+	<form action="form/update" method="post">
+		<label for="address_mus">Адресс Музея</label>  
+			<input type="text" id="address_mus" name="address" th:value = "${address}">
+			<hr>
+			<label for="descriprion_mus">Описание музея</label> 
+			<input type="text" id="descriprion_mus" name="description"  th:value = "${description}">
+			<hr> 
+			<label for="phone_number_mus">Телефон музея</label> 
+			<input type="tel"id="phone_number_mus" name="phoneNumber" th:value = "${phoneNumber}">
+			<hr>
+		<button type="submit">Сохранить изменения</button>
+	</form>
+	
+	
+	<form action="form/nextPage" method="post">
+	<button type="submit">следующее</button>
+	</form>
+	
+	<form action="form/previousPage" method="post">
+	<button type="submit">предудущее</button>
+	</form>
+	
+	<p align="center"> Страница <span th:text="${pagination}"></span> / <span th:text="${amountPage}"></span> </p>
+	
+	
+</body>
+</html>

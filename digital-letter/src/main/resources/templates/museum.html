@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="main_body">
+
+
+	<div class="header">
+		<div class="header">
+			<div class="head_logo"></div>
+			<div class="title">Редактирование информации о музее</div>
+		</div>
+
+		<div class="header">
+			<div class="user_icon"></div>
+			<div class="title">Спирин Максим Валерьевич</div>
+		</div>
+	</div>
+
+<p class="title"><a href="/main">На главную</a></p>
+
+<p class= "title p"> Здесь можно изменить информацию о музее. При изменении данные о музее внутри мобильного приложения сразу же изменятся </p>
+
+	<form onsubmit="confirm('Подтвердите изменение информации о музее')" id="mus_from" action="" class="mus_form" >
+		<div class="input_form museum">
+			<div>
+				<div>
+					<label for="schedule" class="title">Режим работы:</label>
+				</div>
+				<textarea id="schedule" name="schedule" form="mus_from" rows="10"
+					cols="70" class="input_field area"></textarea>
+			</div>
+			<div>
+				<div>
+					<label for="address" class="title">Адресс:</label>
+				</div>
+				<textarea id="address" name="address" form="mus_from" rows="10"
+					cols="70" class="input_field area"></textarea>
+
+			</div>
+			<div>
+				<div>
+					<label for="contact_details" class="title">Контактные данные:</label>
+				</div>
+
+				<textarea id="contact_details" name="contactDetails" form="mus_from"
+					rows="10" cols="70" class="input_field area"
+					placeholder="email, телефон, группа vk"></textarea>
+			</div>
+			<div>
+				<div>
+					<label for="description" class="title">Описание:</label>
+				</div>
+				<textarea id="description" name="description" form="mus_from"
+					rows="10" cols="70" class="input_field area"></textarea>
+			</div>
+
+
+			<div class="self_center">
+				<button class="button t" type="submit">Сохранить изменения</button>
+			</div>
+		</div>
+	</form>
+
+</body>
+</html>
