@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class IntroController {
 
-	@GetMapping(value = "")
+	@GetMapping(value = "/digital-letter")
 	public String helloGet() {
 		return "index";
 	}
