@@ -56,8 +56,6 @@ public class LettersControl {
 		return target;
 	}
 
-	// Источник:
-	// https://stackoverflow.com/questions/44565500/how-can-i-compress-images-using-java
 	private byte[] compressImage(byte[] bytes) throws IOException {
 		try (FileOutputStream fos = new FileOutputStream("currentFile.jpg")) {
 			fos.write(bytes);
@@ -80,10 +78,6 @@ public class LettersControl {
 		param.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
 		param.setCompressionQuality(0.26f); // Change the quality value you prefer
 
-		// TODO Возникала ошибка javax.imageio.iioexception: bogus input colorspace
-		// Была исправлена путем удаления альфа канала - removeAlphaChannel(image)
-		// Источник:
-		// https://stackoverflow.com/questions/60380175/how-to-resolve-javax-imageio-iioexception-bogus-input-colorspace
 		writer.write(null, new IIOImage(removeAlphaChannel(image), null, null), param);
 
 		os.close();
@@ -98,14 +92,12 @@ public class LettersControl {
 		if (!img.getColorModel().hasAlpha()) {
 			return img;
 		}
-
+		
 		BufferedImage target = createImage(img.getWidth(), img.getHeight(), false);
 		Graphics2D g = target.createGraphics();
-		// g.setColor(new Color(color, false));
 		g.fillRect(0, 0, img.getWidth(), img.getHeight());
 		g.drawImage(img, 0, 0, null);
 		g.dispose();
-
 		return target;
 	}
 
